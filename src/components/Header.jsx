@@ -23,7 +23,7 @@ const Header = (props) => {
         <div className='header__menu--profile'>
           {hasUser ?
             <img src={gravatar(user.email)} alt={user.email} /> :
-            <img src={userIcon} alt='' />}
+            <img src={userIcon} alt='Usuario' />}
           <p>Perfil</p>
         </div>
         <ul>

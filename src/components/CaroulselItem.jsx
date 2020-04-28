@@ -32,21 +32,22 @@ const CarouselItem = (props) => {
               alt='Play Icon'
             />
           </Link>
-          {isList ? (
-            <img
-              className='carousel-item__details--img'
-              src={removeIcon}
-              alt='Plus Icon'
-              onClick={() => handleDeleteFavorite(id)}
-            />
-          ) : (
+          {!isList ? (
             <img
               className='carousel-item__details--img'
               src={plusIcon}
-              alt='Plus Icon'
+              alt='Reproducir'
               onClick={handleSetFavorite}
             />
-          )}
+          ) :
+            (
+              <img
+                className='carousel-item__details--img'
+                src={removeIcon}
+                alt='Quitar de mi lista'
+                onClick={() => handleDeleteFavorite(id)}
+              />
+            )}
         </div>
         <p className='carousel-item__details--title'>{title}</p>
         <p className='carousel-item__details--subtitle'>
@@ -63,6 +64,8 @@ CarouselItem.propTypes = {
   year: PropTypes.number,
   contentRating: PropTypes.string,
   duration: PropTypes.number,
+  deleteFavorite: PropTypes.func,
+  setFavorite: PropTypes.func,
 };
 
 const mapDispachToProps = {
